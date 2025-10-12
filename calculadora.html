@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="css/calculadora.css">
+</head>
+<body>
+    <header class="titulo">
+        <button class="flecha_boton">
+            <img class="flecha" src="img/icono_de _regresar_a_login.webp" alt="Regresar">
+        </button>
+    </header>
+
+    <div class="calculadora">
+        <img src="img/UNIVAC.jpeg" alt="" class="mi-imagen">
+
+        <input class="ingresar" type="text" id="valor" disabled>
+
+        <div class="botones">
+            <button>9</button>
+            <button>8</button>
+            <button>7</button>
+            <button class="operador">/</button>
+
+            <button>6</button>
+            <button>5</button>
+            <button>4</button>
+            <button class="operador">*</button>
+
+            <button>3</button>
+            <button>2</button>
+            <button>1</button>
+            <button class="operador">-</button>
+
+            <button>.</button>
+            <button>0</button>
+            <!-- Botón borrar (✖) -->
+            <button id="borrar" class="borrar">✖</button>
+            <button class="operador">+</button>
+
+            <!-- Botón igual que ocupa toda la fila -->
+            <button class="operador" style="grid-column: span 4;">=</button>
+        </div>
+    </div>
+    <script src="js/calculadora.js"></script>
+</body>
+</html>

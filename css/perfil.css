@@ -1,0 +1,321 @@
+/* -------------------- BODY -------------------- */
+body {
+  background: linear-gradient(135deg, #0a0a0a, #111, #000);
+  font-family: 'Poppins', sans-serif;
+  margin: 1px; /* 🔥 margen chingón */
+  padding: 1px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+  min-height: calc(100vh - 80px); /* ajusta por márgenes */
+  color: #00eaff;
+  overflow-x: hidden;
+  border: 2px solid rgba(0, 234, 255, 0.4);
+  border-radius: 25px;
+  box-shadow: 0 0 60px rgba(0, 234, 255, 0.3),
+              inset 0 0 30px rgba(0, 234, 255, 0.2);
+}
+
+
+/* -------------------- PERFIL -------------------- */
+.perfil {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  width: 90%;
+  max-width: 1200px;
+}
+/* -------------------- DATOS -------------------- */
+.datos {
+  position: relative; /* necesario para posicionar botón */
+  text-align: start; /* alinear datos al inicio */
+  border-radius: 20px;
+  padding: 25px 25px 25px 25px; /* espacio interno */
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
+  background: linear-gradient(145deg, rgba(0,255,255,0.05), rgba(0,255,255,0.1));
+  backdrop-filter: blur(8px);
+  transition: all 0.4s ease;
+}
+
+.flecha_boton {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 80px;
+  height: 80px;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #00eaff, #0072ff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.5), 0 0 60px rgba(0, 234, 255, 0.3);
+  z-index: 2;
+  transition: all 0.4s ease;
+  overflow: hidden;
+}
+
+.flecha_boton::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0,255,255,0.4) 0%, rgba(0,255,255,0) 70%);
+  transform: scale(0);
+  transition: transform 0.5s ease;
+  border-radius: 50%;
+}
+
+.flecha_boton:hover::before {
+  transform: scale(1);
+}
+
+.flecha_boton:hover {
+  transform: scale(1.15) rotate(-10deg);
+  box-shadow: 0 0 50px rgba(0,255,255,0.7), 0 0 80px rgba(0,234,255,0.5);
+  background: linear-gradient(135deg, #00ffff, #0072ff);
+}
+
+.flecha {
+  width: 100%;
+  transition: transform 0.4s ease, filter 0.4s ease;
+  filter: drop-shadow(0 0 5px rgba(0,255,255,0.8));
+}
+
+.flecha_boton:hover .flecha {
+  transform: scale(1.2) translateY(-3px);
+  filter: drop-shadow(0 0 10px rgba(0,255,255,1)) drop-shadow(0 0 15px rgba(0,255,255,0.5));
+}
+
+.info {
+  margin-top: 100px; /* separa los datos debajo del botón */
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.info h1 {
+  font-size: 11px;
+  line-height: 1.3;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  word-wrap: break-word; /* ajusta texto largo al contenedor */
+}
+
+/* Cuando se agregue la clase "mostrar" por JS, aparecerán los datos */
+.datos.mostrar .info h1 {
+  opacity: 1;
+}
+
+
+
+/* -------------------- REDES SOCIALES -------------------- */
+.redes_sociales {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  background: rgba(0,255,255,0.05);
+  padding: 35px 30px;
+  border-radius: 30px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 35px rgba(0,255,255,0.2);
+  transition: all 0.4s ease;
+}
+.redes_sociales:hover {
+  box-shadow: 0 0 70px rgba(0,255,255,0.4);
+  transform: scale(1.05);
+}
+.redes_sociales button {
+  background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
+  border: none;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0,255,255,0.3);
+  transition: all 0.3s ease;
+}
+.redes {
+  width: 75%;
+  border-radius: 50%;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: drop-shadow(0 0 6px rgba(0,255,255,0.8));
+}
+.redes_sociales button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 50%;
+  height: 100%;
+  background: rgba(255,255,255,0.4);
+  transform: skewX(-25deg);
+  transition: left 0.5s ease;
+}
+.redes_sociales button:hover::after {
+  left: 130%;
+}
+.redes_sociales button:hover {
+  transform: scale(1.2) rotate(-10deg);
+  background: linear-gradient(145deg, #00eaff, #0072ff);
+  box-shadow: 0 0 40px rgba(0,255,255,0.5);
+}
+.redes_sociales button:hover .redes {
+  transform: scale(1.3);
+}
+@keyframes rebote {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+.redes_sociales button:hover {
+  animation: rebote 0.4s ease;
+}
+
+/* -------------------- FOTO -------------------- */
+.foto {
+  text-align: center;
+  background: rgba(0,255,255,0.05);
+  padding: 50px;
+  border-radius: 30px;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 0 50px rgba(0,255,255,0.2);
+  transition: all 0.4s ease;
+}
+.foto:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 70px rgba(0,255,255,0.5);
+}
+.foto h1 {
+  font-size: 15px;
+  margin-bottom: 30px;
+  color: #00eaff;
+  text-shadow: 0 0 20px rgba(0,255,255,0.8);
+}
+.mi_foto {
+  width:  220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid transparent;
+  background: linear-gradient(135deg, #00eaff, #0072ff) border-box;
+  box-shadow: 0 0 50px rgba(0,255,255,0.4);
+  transition: all 0.4s ease;
+  position: relative;
+  animation: flotar 3s ease-in-out infinite;
+}
+.mi_foto:hover {
+  transform: scale(1.15) rotate(-5deg);
+  box-shadow: 0 0 80px rgba(0,255,255,0.6);
+  filter: brightness(1.3);
+}
+@keyframes flotar {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+/* -------------------- TARJETAS -------------------- */
+.tarjetas {
+  display: flex;
+  gap: 20px;
+  perspective: 1400px;
+}
+
+.tarjeta {
+  background: linear-gradient(145deg, #1a1a1a, #0e0e0e);
+  border-radius: 25px;
+  width: 200px;
+  height: 360px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  color: #00bcd4;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  box-shadow: 0 0 20px rgba(0, 188, 212, 0.15);
+  cursor: pointer;
+  transition: transform 0.6s ease, box-shadow 0.6s ease, background 0.6s ease;
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
+  text-shadow: 0 0 5px rgba(0, 188, 212, 0.4);
+}
+
+/* título de cada tarjeta */
+.tarjeta h2 {
+  margin-bottom: 10px;
+  font-size: 17px;
+  color: #5ee9ff;
+  text-shadow: 0 0 6px rgba(0, 255, 255, 0.4);
+}
+
+/* texto interior */
+.tarjeta .info_objetivo p,
+.tarjeta .info_experiencia p,
+.tarjeta .info_preparacion p {
+  font-size: 13px;
+  font-weight: 400;
+  text-align: justify;
+  color: #cce9ef;
+  line-height: 1.5;
+  text-transform: none;
+  padding: 0 10px;
+  text-shadow: none;
+  opacity: 0.9;
+}
+
+/* brillo dinámico más suave */
+.tarjeta span {
+  background: linear-gradient(90deg, #00ffff, #0099ff, #00ffff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: brillo 6s linear infinite;
+  text-shadow: 0 0 8px rgba(0,255,255,0.3);
+}
+
+@keyframes brillo {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* reflejo más sutil */
+.tarjeta::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 50%;
+  height: 100%;
+  background: rgba(255,255,255,0.15);
+  transform: skewX(-25deg);
+  transition: left 0.5s ease;
+}
+
+.tarjeta:hover::after {
+  left: 130%;
+}
+
+/* hover con menos brillo, más contraste */
+.tarjeta:hover {
+  transform: rotateY(360deg) scale(1.05);
+  box-shadow: 0 0 40px rgba(0, 200, 255, 0.5),
+              0 0 10px rgba(0, 200, 255, 0.3);
+  background: linear-gradient(145deg, #0e3a4a, #001f33);
+  color: #e6faff;
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.6);
+}

@@ -1,0 +1,139 @@
+body {
+    background: #222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    margin: 0;
+    border: 20px solid ; /* borde azul alrededor de toda la página */
+    
+
+    margin: 0;
+    background-image: url("../img/fondo.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}   
+
+.calculadora {
+    margin: 20px;
+    background: #333;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.6);
+    text-align: center;
+    width: 260px;
+}
+
+.mi-imagen {
+    width: 100px;
+    border-radius: 2px;
+    margin-bottom: 15px;
+}
+
+.ingresar {
+    width: 90%;
+    height: 50px;
+    font-size: 1.5rem;
+    text-align: right;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 15px;
+    background: gray;
+    color: white;
+}
+
+.botones {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas iguales */
+    gap: 10px;
+}
+
+button {
+    padding: 20px;
+    font-size: 1.3rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #555;
+    color: white;
+    transition: 0.2s;
+    height: 60px; /* altura uniforme */
+}
+
+button:hover {
+    background: #777;
+}
+
+.operador {
+    background: #f39c12;
+    font-weight: bold;
+}
+
+.operador:hover {
+    background: #e67e22;
+}
+
+.borrar {
+    background: #e74c3c;
+    font-weight: bold;
+}
+
+.borrar:hover {
+    background: #c0392b;
+}
+
+.flecha_boton {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #00eaff, #0072ff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.5), 0 0 60px rgba(0, 234, 255, 0.3);
+  z-index: 2;
+  transition: all 0.4s ease;
+  overflow: hidden;
+}
+
+.flecha_boton::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0,255,255,0.4) 0%, rgba(0,255,255,0) 70%);
+  transform: scale(0);
+  transition: transform 0.5s ease;
+  border-radius: 50%;
+}
+
+.flecha_boton:hover::before {
+  transform: scale(1);
+}
+
+.flecha_boton:hover {
+  transform: scale(1.15) rotate(-10deg);
+  box-shadow: 0 0 50px rgba(0,255,255,0.7), 0 0 80px rgba(0,234,255,0.5);
+  background: linear-gradient(135deg, #00ffff, #0072ff);
+}
+
+.flecha {
+  width:  40px;
+  height: 40px;
+  transition: transform 0.4s ease, filter 0.4s ease;
+  filter: drop-shadow(0 0 5px rgba(0,255,255,0.8));
+}
+
+.flecha_boton:hover .flecha {
+  transform: scale(1.2) translateY(-3px);
+  filter: drop-shadow(0 0 10px rgba(0,255,255,1)) drop-shadow(0 0 15px rgba(0,255,255,0.5));
+}

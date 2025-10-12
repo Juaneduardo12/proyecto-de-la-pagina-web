@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversión</title>
+    <link rel="stylesheet" href="css/conversiones.css">
+</head>
+<body>
+    <header class="titulo">
+        <button class="flecha_boton">
+            <img class="flecha" src="img/icono_de _regresar_a_login.webp" alt="Regresar">
+        </button>
+    </header>
+    
+    <div class="contenedor">
+        
+        <!-- Tarjeta de información -->
+        <header class="tarjeta" 
+                onmouseover="conversorApp.mostrarDatos()" 
+                onmouseout="conversorApp.ocultarDatos()">
+            <div class="contenido" id="info-box">
+                
+            </div>
+        </header>
+
+        <img src="img/UNIVAC_conversiones.jpeg" alt="" class="mi-imagen"> <br>
+
+        <!-- Radios -->
+        <label>
+            <input type="radio" name="opcion" value="divisas">
+            Divisas
+        </label><br>
+
+        <label>
+            <input type="radio" name="opcion" value="unidades">
+            Unidades
+        </label><br>
+
+        <label>
+            <input type="radio" name="opcion" value="decimal_a_binario">
+            Decimal a Binario
+        </label><br><br>
+        
+        <!-- Monedas -->
+        <label for="moneda_origen">Seleccione el tipo de moneda:</label><br>
+        <select id="moneda_origen">
+            <option selected disabled>-- Selecciona --</option>
+            <option value="euro">Euro</option>
+            <option value="dolar">Dólar</option>
+            <option value="peso">Peso</option>
+        </select>
+        <br>
+
+        <label for="moneda_destino">Seleccione el tipo de moneda a cambiar:</label><br>
+        <select id="moneda_destino">
+            <option selected disabled>-- Selecciona --</option>
+            <option value="euro">Euro</option>
+            <option value="dolar">Dólar</option>
+            <option value="peso">Peso</option>
+        </select><br><br>
+
+        <!-- Unidades -->
+        <label for="unidad_origen">Seleccione el tipo de unidad:</label><br>
+        <select id="unidad_origen">
+            <option selected disabled>-- Selecciona --</option>
+            <option value="centimetro">Centímetro</option>
+            <option value="metros">Metros</option>
+            <option value="kilometro">Kilómetro</option>
+        </select>
+        <br>
+
+        <label for="unidad_destino">Seleccione el tipo de unidad a cambiar:</label><br>
+        <select id="unidad_destino">
+            <option selected disabled>-- Selecciona --</option>
+            <option value="centimetro">Centímetro</option>
+            <option value="metros">Metros</option>
+            <option value="kilometro">Kilómetro</option>
+        </select>
+        <br><br>
+
+        <!-- Valor -->
+        <label for="valor">Introduce un valor:</label><br>
+        <input type="number" id="valor" placeholder="Ej: 100" disabled>
+        <br><br>
+
+        <!-- Resultado -->
+        <label for="resultado">Resultado:</label><br>
+        <input type="text" id="resultado" readonly>
+
+    </div>
+
+    <script src="js/conversiones.js"></script>
+    <script>
+        // Radios: llamamos al método del objeto al cambiar
+        document.querySelectorAll('input[name="opcion"]').forEach(radio => {
+            radio.addEventListener('change', (e) => {
+                conversorApp.seleccionarOpcion(e.target.value);
+            });
+        });
+    </script>
+</body>
+</html>

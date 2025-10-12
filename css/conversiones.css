@@ -1,0 +1,129 @@
+body {
+  margin: 0;
+  border: 10px solid blue; /* borde azul alrededor de toda la página */
+  
+
+  margin: 0;
+  background-image: url("../img/fondo_conversiones.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.contenedor {
+    position: relative;   /* referencia */
+    border: 1px solid #000;
+    width: 320px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 20px;
+    background-color: #f0f0f0;
+    margin: 50px auto;
+    border-radius: 10px 0 10px 10px;
+    color: black;
+    z-index: 2;   /* 🔹 contenedor al frente */
+}
+
+.tarjeta {
+    position: absolute;
+    top: 0px;
+    right: -10px;   /* sobresale un poquito */
+    width: 10px;
+    height: 60px;
+    background: #007bff;
+    border-radius: 0 6px 6px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.4s ease, width 0.4s ease;
+    text-align: left;
+    z-index: 1;   /* 🔹 tarjeta detrás del contenedor */
+}
+
+/* Hover: al pasar el mouse, la tarjeta sale adelante */
+.tarjeta:hover {
+    width: 220px;
+    transform: translateX(190px);
+    z-index: 3;   /* 🔹 ahora queda al frente */
+}
+
+/* Contenido */
+.tarjeta .contenido {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    opacity: 0;
+    font-size: 11px;
+    color: #f0f0f0;
+    padding: 5px 5px;
+    white-space: nowrap;
+    transition: opacity 0.4s ease 0.2s;
+}
+
+.tarjeta:hover .contenido {
+    opacity: 1;
+}
+
+
+.mi-imagen {
+    display: block;
+    margin: 0 auto;
+    width: 200px;          /* tamaño de la imagen */
+    border-radius: 15px;   /* bordes redondeados */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.mi-imagen:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+.flecha_boton {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #00eaff, #0072ff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.5), 0 0 60px rgba(0, 234, 255, 0.3);
+  z-index: 2;
+  transition: all 0.4s ease;
+  overflow: hidden;
+}
+
+.flecha_boton::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0,255,255,0.4) 0%, rgba(0,255,255,0) 70%);
+  transform: scale(0);
+  transition: transform 0.5s ease;
+  border-radius: 50%;
+}
+
+.flecha_boton:hover::before {
+  transform: scale(1);
+}
+
+.flecha_boton:hover {
+  transform: scale(1.15) rotate(-10deg);
+  box-shadow: 0 0 50px rgba(0,255,255,0.7), 0 0 80px rgba(0,234,255,0.5);
+  background: linear-gradient(135deg, #00ffff, #0072ff);
+}
+
+.flecha {
+  width: 100%;
+  transition: transform 0.4s ease, filter 0.4s ease;
+  filter: drop-shadow(0 0 5px rgba(0,255,255,0.8));
+}
+
+.flecha_boton:hover .flecha {
+  transform: scale(1.2) translateY(-3px);
+  filter: drop-shadow(0 0 10px rgba(0,255,255,1)) drop-shadow(0 0 15px rgba(0,255,255,0.5));
+}
