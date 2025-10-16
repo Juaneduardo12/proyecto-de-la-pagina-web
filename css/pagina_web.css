@@ -8,14 +8,11 @@ body {
   padding: 20px; /* Aumentado para mejor visualización */
 }
 
-/* Contenedor de cada tarjeta (ahora envuelve la tarjeta y el método) */
+/* Contenedor de cada tarjeta (tarjeta + método) */
 .tarjeta-container {
-  /* ¡CLAVE! Asegura que la tarjeta y el método se apilen verticalmente
-     dentro de esta celda del grid. */
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* El espaciado inferior lo maneja el 'gap' del body */
 }
 
 /* Tarjetas */
@@ -25,10 +22,10 @@ body {
   border-radius: 10px;
   cursor: pointer;
   width: 100%;
-  max-width: 300px; /* Ancho máximo consistente */
+  max-width: 300px;
 }
 
-img {
+.card img {
   width: 100%;
   height: 100%;
   display: block;
@@ -81,7 +78,7 @@ img {
   }
 }
 
-/* Métodos / Información extra */
+/* Información / Métodos */
 .metodo {
   font-size: 10px;
   background-color: black;
@@ -89,11 +86,9 @@ img {
   padding: 10px;
   text-align: justify;
   display: none;
-  /* ¡CLAVE! Separación consistente del elemento superior (la tarjeta) */
-  margin-top: 25px; 
+  margin-top: 25px;
   width: 90%;
-  /* Asegura que el ancho del método coincida con el ancho de la tarjeta */
-  max-width: 300px; 
+  max-width: 300px;
   border-radius: 8px;
   transition: opacity 0.5s ease;
 }
@@ -103,6 +98,24 @@ img {
   opacity: 1;
 }
 
+/* --- Ajuste de imágenes dentro del contenedor de métodos --- */
+.metodo img {
+  width: 100%;              /* Se ajusta al ancho del contenedor */
+  height: auto;             /* Mantiene la proporción original */
+  max-height: 180px;        /* Evita imágenes demasiado altas */
+  object-fit: cover;        /* Recorta sin deformar */
+  border-radius: 8px;       /* Bordes suaves */
+  margin-top: 10px;         /* Espacio entre texto e imagen */
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.metodo img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.6);
+}
+
+/* Botón de regresar */
 .flecha_boton {
   position: absolute;
   top: 12px;
@@ -116,7 +129,8 @@ img {
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  box-shadow: 0 0 25px rgba(0, 255, 255, 0.5), 0 0 60px rgba(0, 234, 255, 0.3);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.5),
+              0 0 60px rgba(0, 234, 255, 0.3);
   z-index: 2;
   transition: all 0.4s ease;
   overflow: hidden;
@@ -141,12 +155,13 @@ img {
 
 .flecha_boton:hover {
   transform: scale(1.15) rotate(-10deg);
-  box-shadow: 0 0 50px rgba(0,255,255,0.7), 0 0 80px rgba(0,234,255,0.5);
+  box-shadow: 0 0 50px rgba(0,255,255,0.7),
+              0 0 80px rgba(0,234,255,0.5);
   background: linear-gradient(135deg, #00ffff, #0072ff);
 }
 
 .flecha {
-  width:  40px;
+  width: 40px;
   height: 40px;
   transition: transform 0.4s ease, filter 0.4s ease;
   filter: drop-shadow(0 0 5px rgba(0,255,255,0.8));
@@ -154,5 +169,6 @@ img {
 
 .flecha_boton:hover .flecha {
   transform: scale(1.2) translateY(-3px);
-  filter: drop-shadow(0 0 10px rgba(0,255,255,1)) drop-shadow(0 0 15px rgba(0,255,255,0.5));
+  filter: drop-shadow(0 0 10px rgba(0,255,255,1))
+          drop-shadow(0 0 15px rgba(0,255,255,0.5));
 }
